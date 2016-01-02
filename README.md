@@ -1,7 +1,7 @@
 # Table.js
 
 ### Inspiration
-The main inspiration behind creating ***Table.js*** was a recent Salesforce project where there was a need to display a Table or better said a "matrix" report kind of a table grouped along both the Rows and Columns similar to how it might look in a Spreadhseet Application. One of the libraries that we started with was the magnificient [**handsontable**](). 
+The main inspiration behind creating ***Table.js*** was a recent Salesforce project where there was a need to display a Table or better said a "matrix" report kind of a table grouped along both the Rows and Columns similar to how it might look in a Spreadsheet Application. One of the libraries that we started with was the magnificient [**handsontable**](). 
 
 But since we had quite a good number of matrices that we had to display on the same page, handsontable became resource intensive. Moreover we never made use of any goodness that handsontable offered. The sole aim was to produce a "*static*" table that looked similar to the one shown below with support for *custom cell formatting*.
 
