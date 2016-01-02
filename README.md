@@ -66,6 +66,11 @@ new Table(
                 td.style.backgroundColor = "#138808";
             }
         }
+        
+        /**
+         * Don't forget to sent the modified Cell back!
+         */
+        return td;
     },
     
     /*A Callback Function*/
