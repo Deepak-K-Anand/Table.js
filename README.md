@@ -12,16 +12,22 @@ And thus went ahead to write a small JS library that would offer this!
 ### Usage
 
 ##### Setting up the DOM
-In order to use Table.js, firstly create a **DIV** element like as shown below - 
-```HTML
+In order to use Table.js, include the [Table.js](https://github.com/Deepak-K-Anand/Table.js/blob/master/src/Table.js) file in your HTML Document.
+
+```html
+<script type="text/javascript" src="js/table.js"><script>
+```
+
+Then add a **DIV** element like as shown below - 
+```html
 <div id="container"></div>
 ```
-that would wrap the HTML Table. One can apply **Twitter Bootstrap** on the wrapper DIV to make the contained HTML Tables to be responsive too.
-```HTML
+that would wrap the HTML Table. One can also apply **Twitter Bootstrap** on the wrapper DIV to make the contained HTML Tables to be responsive too.
+```html
 <div id="container" class="table-responsive"></div>
 ```
 ##### Writing the JavaScript
-Now for the JavaScript should be as simple as this - 
+Now for the JavaScript, it should be as simple as this - 
 ```javascript
 new Table(
     /*Container*/
@@ -74,14 +80,14 @@ new Table(
 The Table.js also applies a set of CSS classes to the Table and the Cells. They are enumerated as below - 
 
 1. Row Headers
- * CSS Class : **row-header**
- * Description: This CSS class is applied to the Row Headers.
+ * *CSS Class*: **row-header**
+ * *Description*: This CSS class is applied to the Row Headers.
 2. Column Headers
- * CSS Class : **col-header**
- * Description: This CSS class is applied to the Column Headers.
+ * *CSS Class*: **col-header**
+ * *Description*: This CSS class is applied to the Column Headers.
 3. Data Cell
- * CSS Class : **data-cel**
- * Description: This CSS class is applied to all the other Cells.
+ * *CSS Class*: **data-cell**
+ * *Description*: This CSS class is applied to all the other Cells.
 
 This gives more flexibility to the developers thus allowing them to control the look and feel of the headers and individual data cells via CSS.
 
