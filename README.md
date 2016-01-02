@@ -15,7 +15,7 @@ And thus went ahead to write a small JS library that would offer this!
 In order to use Table.js, include the [Table.js](https://github.com/Deepak-K-Anand/Table.js/blob/master/src/Table.js) file in your HTML Document.
 
 ```html
-<script type="text/javascript" src="js/table.js"></script>
+<script type="text/javascript" src="js/Table.js"></script>
 ```
 
 Then add a **DIV** element like as shown below - 
