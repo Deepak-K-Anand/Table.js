@@ -22,7 +22,7 @@ Then add a **DIV** element like as shown below -
 ```html
 <div id="container"></div>
 ```
-that would wrap the HTML Table. The Table will be added to this DIV element as it's child. One can also apply **Twitter Bootstrap** on the wrapper DIV to make the contained HTML Tables to be responsive too.
+that would wrap the HTML Table. The Table will be added to this DIV element as it's child. One can also apply **Twitter Bootstrap** on the wrapper DIV to make the contained HTML Tables to be [responsive](http://getbootstrap.com/css/#tables-responsive) too.
 ```html
 <div id="container" class="table-responsive"></div>
 ```
@@ -96,6 +96,9 @@ The Table.js also applies a set of CSS classes to the Table and the Cells. They 
 3. Data Cell
  * *CSS Class*: **data-cell**
  * *Description*: This CSS class is applied to all the other Cells.
+4. Table
+ * *CSS Class*: **table table-bordered table-hover**
+ * *Description*: This CSS class is applied to the Table. This is a set [Bootstrap](http://getbootstrap.com/css/#tables-bordered) classes.
 
 This gives more flexibility to the developers thus allowing them to control the look and feel of the headers and individual data cells via CSS.
 
