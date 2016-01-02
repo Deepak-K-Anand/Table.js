@@ -93,7 +93,7 @@ The Table.js also applies a set of CSS classes to the Table and the Cells. They 
 2. Column Headers
  * *CSS Class*: **col-header**
  * *Description*: This CSS class is applied to the Column Headers.
-3. Data Cell
+3. Data Cells
  * *CSS Class*: **data-cell**
  * *Description*: This CSS class is applied to all the other Cells.
 4. Table
