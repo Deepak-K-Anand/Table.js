@@ -96,6 +96,29 @@ The Table.js also applies a set of CSS classes to the Table and the Cells. They 
 
 This gives more flexibility to the developers thus allowing them to control the look and feel of the headers and individual data cells via CSS.
 
+#####Applying CSS
+Here is a set of sample CSS rules that were applied to get a similar look and feel as the Table shown in the screenshot above - 
+```css
+th,
+.row-header {
+    color            : white;
+    font-weight      : bold;
+    background-color : #288FFE;
+}
+
+.row-header {
+    width: 15%;
+}
+
+.col-header {
+    text-align: center;
+}
+
+.data-cell {
+    text-align: center;
+}
+```
+
 > Table.js also applies the Twitter Bootstrap classes to the containing Table.
 
 ### Licensing
