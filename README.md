@@ -118,6 +118,7 @@ th,
     text-align: center;
 }
 ```
+> Since the HTML Table is generated in compliance with the [W3C Specifications](http://www.w3.org/TR/html401/struct/tables.html), one will have to access the Column Header Cells using the Tag Selector - `th { }` and not ~~`td {}`~~.
 
 > Table.js also applies the Twitter Bootstrap classes to the containing Table.
 
