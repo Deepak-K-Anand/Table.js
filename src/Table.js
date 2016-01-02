@@ -58,7 +58,7 @@ Table.prototype.destroy = function() {
     var existingTable = this.container.getElementsByTagName( this.tags.table );
 
     if( existingTable.length > 0 ) {
-        for(var i = 0; i < existingTable.length; i++ ) {
+        for( var i = 0; i < existingTable.length; i++ ) {
             this.container.removeChild( existingTable[i] );
         }
     }
@@ -69,7 +69,7 @@ Table.prototype.destroy = function() {
  * generate the Table based on the Data provided.
  */
 Table.prototype.generate = function() {
-    var self  = this;
+    var self = this;
     
     /**
      * Remove any existing tables from the
@@ -78,7 +78,7 @@ Table.prototype.generate = function() {
     var existingTable = self.container.getElementsByTagName( self.tags.table );
 
     if( existingTable.length > 0 ) {
-        for(var i = 0; i < existingTable.length; i++ ) {
+        for( var i = 0; i < existingTable.length; i++ ) {
             self.container.removeChild( existingTable[i] );
         }
     }
