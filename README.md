@@ -1,7 +1,7 @@
 # Table.js
 
 ### Inspiration
-The main inspiration behind creating ***Table.js*** was a recent Salesforce project where there was a need to display a Table or better said a "matrix" report kind of a table grouped along both the Rows and Columns similar to how it might look in a Spreadsheet Application. One of the libraries that we started with was the magnificient [**handsontable**](). 
+The main inspiration behind creating ***Table.js*** was a recent Salesforce project where there was a need to display a Table or better said a "matrix" report kind of a table grouped along both the Rows and Columns similar to how it might look in a Spreadsheet Application. One of the libraries that we started with was the magnificient [**handsontable**](http://handsontable.com/). 
 
 But since we had quite a good number of matrices that we had to display on the same page, handsontable became resource intensive. Moreover we never made use of any goodness that handsontable offered. The sole aim was to produce a "*static*" table that looked similar to the one shown below with support for *custom cell formatting*.
 
@@ -15,7 +15,7 @@ And thus went ahead to write a small JS library that would offer this!
 In order to use Table.js, include the [Table.js](https://github.com/Deepak-K-Anand/Table.js/blob/master/src/Table.js) file in your HTML Document.
 
 ```html
-<script type="text/javascript" src="js/table.js"><script>
+<script type="text/javascript" src="js/table.js"></script>
 ```
 
 Then add a **DIV** element like as shown below - 
@@ -62,8 +62,8 @@ new Table(
                 td.style.backgroundColor = "#93C572";
             }
             else if( value > 75 && value <= 100 ) {
+                td.style.fontWeight      = "bold";
                 td.style.backgroundColor = "#138808";
-                td.style.fontWeight = "bold";
             }
         }
     },
@@ -71,7 +71,7 @@ new Table(
     /*A Callback Function*/
     function() {
         /* A typical Callback function to plot Sparkline Charts.*/
-        jQuery("span.line").peity("line");
+        jQuery( "span.line" ).peity( "line" );
     }
 ).generate();
 ```
