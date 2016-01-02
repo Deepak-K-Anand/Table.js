@@ -14,7 +14,7 @@
  * @param   colHeaders      A String Array containing the Column Headers.
  * @param   rowHeaders      A String Array containing the Row Headers.
  * @param   data            A 2D Array containing the data to generate the Table.
- * @param   cellRenderer    A Function that will invoked on each Cell being added to the Table.
+ * @param   cellRenderer    A Function that will be invoked on each Cell being added to the Table.
  *                          This allows developers to write custom logic say for eg. 
  *                          "Cell Formatting" before adding the Cell to the Table. The function
  *                          will receive 3 Paramters:
@@ -27,10 +27,10 @@
  */
 var Table = function( container, colHeaders, rowHeaders, data, cellRenderer, callback ) {
     this.data         = data;
+    this.callback     = callback;
     this.container    = container;
     this.colHeaders   = colHeaders;
     this.rowHeaders   = rowHeaders;
-    this.callback     = callback;
     this.cellRenderer = cellRenderer;
 
     this.classNames = {
