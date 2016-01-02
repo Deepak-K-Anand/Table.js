@@ -22,7 +22,7 @@ Then add a **DIV** element like as shown below -
 ```html
 <div id="container"></div>
 ```
-that would wrap the HTML Table. One can also apply **Twitter Bootstrap** on the wrapper DIV to make the contained HTML Tables to be responsive too.
+that would wrap the HTML Table. The Table will be added to this DIV element as it's child. One can also apply **Twitter Bootstrap** on the wrapper DIV to make the contained HTML Tables to be responsive too.
 ```html
 <div id="container" class="table-responsive"></div>
 ```
