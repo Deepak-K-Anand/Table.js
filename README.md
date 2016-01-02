@@ -67,9 +67,7 @@ new Table(
             }
         }
         
-        /**
-         * Don't forget to sent the modified Cell back!
-         */
+        /*Don't forget to sent the modified Cell back!*/
         return td;
     },
     
