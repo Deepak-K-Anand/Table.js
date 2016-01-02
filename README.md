@@ -76,6 +76,11 @@ new Table(
 ).generate();
 ```
 
+You can remove a Table from the Container by invoking the `destroy()` function like as shown below - 
+```javascript
+new Table( document.getElementById( "container" ) ).destroy();
+```
+
 ### Bonus
 The Table.js also applies a set of CSS classes to the Table and the Cells. They are enumerated as below - 
 
