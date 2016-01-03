@@ -26,7 +26,7 @@
  *                          @attribute  cellRenderer    A Function that will be invoked on each Cell being added
  *                                                      to the Table. This allows developers to write custom logic
  *                                                      say for eg. "Cell Formatting" before adding the Cell to
- *                                                      the Table. The function will receive 3 Paramters:
+ *                                                      the Table. The function will receive 5 Paramters:
  * 
  *                                                      @param      td              The Current Cell in context.
  *                                                      @param      isDataCell      A Boolean representing if the Cell is a Data Cell or not.
