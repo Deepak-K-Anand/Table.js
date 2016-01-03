@@ -97,6 +97,11 @@ You can remove a Table from the Container by invoking the `destroy()` function l
 new Table( document.getElementById( "container" ) ).destroy();
 ```
 
+### Demo
+A working example on JS Fiddle: [http://jsfiddle.net/6ptgb5hn](http://jsfiddle.net/6ptgb5hn/embedded/). The line charts have been implemented using [Peity.js](http://benpickles.github.io/peity/).
+
+> Note: The Table.js and Peity.js have been provided via my personal Firebase App and this not a <strike>CDN</strike>! So please use it by downloading the same as a local resource.
+
 ### Styling
 The Table.js also applies a set of CSS classes to the Table and the Cells. They are enumerated as below - 
 
