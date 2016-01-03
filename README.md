@@ -30,51 +30,64 @@ that would wrap the HTML Table. The Table will be added to this DIV element as i
 Now for the JavaScript, it should be as simple as this - 
 ```javascript
 new Table(
-    /*Container*/
+    /*Container DIV*/
     document.getElementById( "container" ),
-    
-    /*Column Headers*/
-    [36, 37, 38, 39, 40],
-    
-    /*Row Headers*/
-    ["Leads", "Contacts", "1 on 1", "Commitment", "Launch", "Handoff"],
-    
-    /*2-D Array with the Data*/
-    [
-        [4,  8,  9,  7,  9  ],
-        [25, 25, 22, 28, 22 ],
-        [0,  0,  0,  0,  0  ],
-        [75, 37, 0,  28, 33 ]
-    ],
-    
-    /*A Cell Renderer Function*/
-    function( td, isDataCell, isFirstRow ) {
-        if( isFirstRow ) {
-            td.style.backgroundColor = "#AEA79F";
-        }
-        else if( isDataCell ) {
-            var value = parseInt( td.innerHTML );
-            
-            if( value >= 25 && value <= 50 ) {
-                td.style.backgroundColor = "#F0FFF0";
-            }
-            else if( value > 50 && value <= 75 ) {
-                td.style.backgroundColor = "#93C572";
-            }
-            else if( value > 75 && value <= 100 ) {
-                td.style.fontWeight      = "bold";
-                td.style.backgroundColor = "#138808";
-            }
-        }
-        
-        /*Don't forget to sent the modified Cell back!*/
-        return td;
+    {
+        /*2-D Array with the Row aka the Data*/
+        rows         :  [
+                            [4,  8,  9,  7,  9  ],
+                            [25, 25, 22, 28, 22 ],
+                            [0,  0,  0,  0,  0  ],
+                            [75, 37, 0,  28, 33 ],
+                            [57, 0,  73, 82, 0  ],
+                            [52, 52, 0,  70, 90 ]
+                        ],
+        /*Column Headers*/
+        colHeaders   :  [36, 37, 38, 39, 40],
+        /*Row Headers*/
+        rowHeaders   :  ["Leads", "Contacts", "1 on 1", "Commitment", "Launch", "Handoff"]
     },
+    {
+        /*A Caption for the Table. This can be set to NULL if not needed.*/
+        caption      :  "Leads Grouped By Week and Funnel",
+        /**
+         * Whether to append the Table to any existing Tables within the Container. 
+         * When set to TRUE the destroy() function will not be invoked on the
+         * Container.
+         */
+        appendTable  :  false,
+        /**
+         * A Cell Renderer Function that highlights the Cells based on it's content. 
+         * This can be set to NULL if not needed.
+         */
+        cellRenderer :  function( td, isDataCell, isFirstRow, isColHeader, isRowHeader ) {
+            if( isFirstRow ) {
+                td.style.backgroundColor = "#AEA79F";
+            }
+            else if( isDataCell ) {
+                var value = parseInt( td.innerHTML );
     
-    /*A Callback Function*/
-    function() {
-        /* A typical Callback function to plot Sparkline Charts.*/
-        jQuery( "span.line" ).peity( "line" );
+                if( value >= 25 && value <= 50 ) {
+                    td.style.backgroundColor = "#F0FFF0";
+                }
+                else if( value > 50 && value <= 75 ) {
+                    td.style.backgroundColor = "#93C572";
+                }
+                else if( value > 75 && value <= 100 ) {
+                    td.style.fontWeight      = "bold";
+                    td.style.backgroundColor = "#138808";
+                }
+            }
+    
+            /*Don't forget to sent the modified Cell back!*/
+            return td;
+        },
+        callback     :  function() {
+            /**
+             * The Callback function to plot Sparkline Charts.
+             */
+            jQuery("span.line").peity("line");
+        }
     }
 ).generate();
 ```
