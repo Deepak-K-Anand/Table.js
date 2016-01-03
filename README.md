@@ -33,7 +33,7 @@ new Table(
     /*Container DIV*/
     document.getElementById( "container" ),
     {
-        /*2-D Array with the Row aka the Data*/
+        /*2-D Array with the Rows aka the Data*/
         rows         :  [
                             [4,  8,  9,  7,  9  ],
                             [25, 25, 22, 28, 22 ],
