@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Table.js by Deepak-K-Anand</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Table.js</h1>
+      <h2 class="project-tagline">A Simple Row and Column Grouped HTML Table Generating Library</h2>
+      <a href="https://github.com/Deepak-K-Anand/Table.js" class="btn">View on GitHub</a>
+      <a href="https://github.com/Deepak-K-Anand/Table.js/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/Deepak-K-Anand/Table.js/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="tablejs" class="anchor" href="#tablejs" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Table.js</h1>
+
+<h3>
+<a id="inspiration" class="anchor" href="#inspiration" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Inspiration</h3>
+
+<p>The main inspiration behind creating <strong><em>Table.js</em></strong> was a recent Salesforce project that we did at <a href="http://dazeworks.com/">Dazeworks</a> where there was a need to display a Table or better said a "matrix" report kind of a table grouped along both the Rows and Columns similar to how it might look in a Spreadsheet Application. One of the libraries that we started with was the magnificient <a href="http://handsontable.com/"><strong>handsontable</strong></a>. </p>
+
+<p>But since we had quite a good number of matrices that we had to display on the same page, handsontable became resource intensive. Moreover we never made use of any goodness that handsontable offered. The sole aim was to produce a "<em>static</em>" table that looked similar to the one shown below with support for <em>custom cell formatting</em>.</p>
+
+<p><img src="https://cloud.githubusercontent.com/assets/3683725/12074161/f322e6aa-b16a-11e5-8ae8-1fe95f3d4805.png" alt="screenshot_1"></p>
+
+<p>And thus went ahead to write a small JS library that would offer this!</p>
+
+<h3>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Usage</h3>
+
+<h5>
+<a id="setting-up-the-dom" class="anchor" href="#setting-up-the-dom" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Setting up the DOM</h5>
+
+<p>In order to use Table.js, include the <a href="https://github.com/Deepak-K-Anand/Table.js/blob/master/src/Table.js">Table.js</a> file in your HTML Document.</p>
+
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">script</span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>text/javascript<span class="pl-pds">"</span></span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>js/Table.js<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;</pre></div>
+
+<p>Then add a <strong>DIV</strong> element like as shown below - </p>
+
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">"</span>container<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">div</span>&gt;</pre></div>
+
+<p>that would wrap the HTML Table. The Table will be added to this DIV element as it's child. One can also apply <strong>Twitter Bootstrap</strong> on the wrapper DIV to make the contained HTML Tables to be <a href="http://getbootstrap.com/css/#tables-responsive">responsive</a> too.</p>
+
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">"</span>container<span class="pl-pds">"</span></span> <span class="pl-e">class</span>=<span class="pl-s"><span class="pl-pds">"</span>table-responsive<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">div</span>&gt;</pre></div>
+
+<h5>
+<a id="writing-the-javascript" class="anchor" href="#writing-the-javascript" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Writing the JavaScript</h5>
+
+<p>Now for the JavaScript, it should be as simple as this - </p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">new</span> <span class="pl-en">Table</span>(
+    <span class="pl-c">/*Container DIV*/</span>
+    <span class="pl-smi">document</span>.<span class="pl-c1">getElementById</span>( <span class="pl-s"><span class="pl-pds">"</span>container<span class="pl-pds">"</span></span> ),
+    {
+        <span class="pl-c">/*2-D Array with the Rows aka the Data*/</span>
+        rows         <span class="pl-k">:</span>  [
+                            [<span class="pl-c1">4</span>,  <span class="pl-c1">8</span>,  <span class="pl-c1">9</span>,  <span class="pl-c1">7</span>,  <span class="pl-c1">9</span>  ],
+                            [<span class="pl-c1">25</span>, <span class="pl-c1">25</span>, <span class="pl-c1">22</span>, <span class="pl-c1">28</span>, <span class="pl-c1">22</span> ],
+                            [<span class="pl-c1">0</span>,  <span class="pl-c1">0</span>,  <span class="pl-c1">0</span>,  <span class="pl-c1">0</span>,  <span class="pl-c1">0</span>  ],
+                            [<span class="pl-c1">75</span>, <span class="pl-c1">37</span>, <span class="pl-c1">0</span>,  <span class="pl-c1">28</span>, <span class="pl-c1">33</span> ],
+                            [<span class="pl-c1">57</span>, <span class="pl-c1">0</span>,  <span class="pl-c1">73</span>, <span class="pl-c1">82</span>, <span class="pl-c1">0</span>  ],
+                            [<span class="pl-c1">52</span>, <span class="pl-c1">52</span>, <span class="pl-c1">0</span>,  <span class="pl-c1">70</span>, <span class="pl-c1">90</span> ]
+                        ],
+        <span class="pl-c">/*Column Headers*/</span>
+        colHeaders   <span class="pl-k">:</span>  [<span class="pl-c1">36</span>, <span class="pl-c1">37</span>, <span class="pl-c1">38</span>, <span class="pl-c1">39</span>, <span class="pl-c1">40</span>],
+        <span class="pl-c">/*Row Headers*/</span>
+        rowHeaders   <span class="pl-k">:</span>  [<span class="pl-s"><span class="pl-pds">"</span>Leads<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>Contacts<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>1 on 1<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>Commitment<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>Launch<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>Handoff<span class="pl-pds">"</span></span>]
+    },
+    {
+        <span class="pl-c">/*A Caption for the Table. This can be set to NULL if not needed.*/</span>
+        caption      <span class="pl-k">:</span>  <span class="pl-s"><span class="pl-pds">"</span>Leads Grouped By Week and Funnel<span class="pl-pds">"</span></span>,
+        <span class="pl-c">/**</span>
+<span class="pl-c">         * Whether to append the Table to any existing Tables within the Container. </span>
+<span class="pl-c">         * When set to TRUE the destroy() function will not be invoked on the</span>
+<span class="pl-c">         * Container.</span>
+<span class="pl-c">         */</span>
+        appendTable  <span class="pl-k">:</span>  <span class="pl-c1">false</span>,
+        <span class="pl-c">/**</span>
+<span class="pl-c">         * A Cell Renderer Function that highlights the Cells based on it's content. </span>
+<span class="pl-c">         * This can be set to NULL if not needed.</span>
+<span class="pl-c">         */</span>
+        <span class="pl-en">cellRenderer</span> <span class="pl-k">:</span>  <span class="pl-k">function</span>( <span class="pl-smi">td</span>, <span class="pl-smi">isDataCell</span>, <span class="pl-smi">isFirstRow</span>, <span class="pl-smi">isColHeader</span>, <span class="pl-smi">isRowHeader</span> ) {
+            <span class="pl-k">if</span>( isFirstRow ) {
+                <span class="pl-smi">td</span>.<span class="pl-c1">style</span>.<span class="pl-c1">backgroundColor</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>#AEA79F<span class="pl-pds">"</span></span>;
+            }
+            <span class="pl-k">else</span> <span class="pl-k">if</span>( isDataCell ) {
+                <span class="pl-k">var</span> value <span class="pl-k">=</span> <span class="pl-c1">parseInt</span>( <span class="pl-smi">td</span>.<span class="pl-smi">innerHTML</span> );
+
+                <span class="pl-k">if</span>( value <span class="pl-k">&gt;=</span> <span class="pl-c1">25</span> <span class="pl-k">&amp;&amp;</span> value <span class="pl-k">&lt;=</span> <span class="pl-c1">50</span> ) {
+                    <span class="pl-smi">td</span>.<span class="pl-c1">style</span>.<span class="pl-c1">backgroundColor</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>#F0FFF0<span class="pl-pds">"</span></span>;
+                }
+                <span class="pl-k">else</span> <span class="pl-k">if</span>( value <span class="pl-k">&gt;</span> <span class="pl-c1">50</span> <span class="pl-k">&amp;&amp;</span> value <span class="pl-k">&lt;=</span> <span class="pl-c1">75</span> ) {
+                    <span class="pl-smi">td</span>.<span class="pl-c1">style</span>.<span class="pl-c1">backgroundColor</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>#93C572<span class="pl-pds">"</span></span>;
+                }
+                <span class="pl-k">else</span> <span class="pl-k">if</span>( value <span class="pl-k">&gt;</span> <span class="pl-c1">75</span> <span class="pl-k">&amp;&amp;</span> value <span class="pl-k">&lt;=</span> <span class="pl-c1">100</span> ) {
+                    <span class="pl-smi">td</span>.<span class="pl-c1">style</span>.<span class="pl-c1">fontWeight</span>      <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>bold<span class="pl-pds">"</span></span>;
+                    <span class="pl-smi">td</span>.<span class="pl-c1">style</span>.<span class="pl-c1">backgroundColor</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>#138808<span class="pl-pds">"</span></span>;
+                }
+            }
+
+            <span class="pl-c">/*Don't forget to sent the modified Cell back!*/</span>
+            <span class="pl-k">return</span> td;
+        },
+        <span class="pl-en">callback</span>     <span class="pl-k">:</span>  <span class="pl-k">function</span>() {
+            <span class="pl-c">/**</span>
+<span class="pl-c">             * The Callback function to plot Sparkline Charts.</span>
+<span class="pl-c">             */</span>
+            <span class="pl-en">jQuery</span>(<span class="pl-s"><span class="pl-pds">"</span>span.line<span class="pl-pds">"</span></span>).<span class="pl-en">peity</span>(<span class="pl-s"><span class="pl-pds">"</span>line<span class="pl-pds">"</span></span>);
+        }
+    }
+).<span class="pl-en">generate</span>();</pre></div>
+
+<p>You can remove a Table from the Container by invoking the <code>destroy()</code> function like as shown below - </p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-k">new</span> <span class="pl-en">Table</span>( <span class="pl-smi">document</span>.<span class="pl-c1">getElementById</span>( <span class="pl-s"><span class="pl-pds">"</span>container<span class="pl-pds">"</span></span> ) ).<span class="pl-en">destroy</span>();</pre></div>
+
+<h3>
+<a id="demo" class="anchor" href="#demo" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Demo</h3>
+
+<p>A working example on JS Fiddle: <a href="http://jsfiddle.net/6ptgb5hn/3/embedded/">http://jsfiddle.net/6ptgb5hn</a>. The line charts have been implemented using <a href="http://benpickles.github.io/peity/">Peity.js</a>.</p>
+
+<blockquote>
+<p>Note: The Table.js and Peity.js have been served via my personal Firebase App and this is not a <strike>CDN</strike>! So please use it by downloading the same and refer it as a local resource.</p>
+</blockquote>
+
+<h3>
+<a id="styling" class="anchor" href="#styling" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Styling</h3>
+
+<p>The Table.js also applies a set of CSS classes to the Table and the Cells. They are enumerated as below - </p>
+
+<ol>
+<li>Row Headers
+
+<ul>
+<li>
+<em>CSS Class</em>: <strong>row-header</strong>
+</li>
+<li>
+<em>Description</em>: This CSS class is applied to the Row Headers.</li>
+</ul>
+</li>
+<li>Column Headers
+
+<ul>
+<li>
+<em>CSS Class</em>: <strong>col-header</strong>
+</li>
+<li>
+<em>Description</em>: This CSS class is applied to the Column Headers.</li>
+</ul>
+</li>
+<li>Data Cells
+
+<ul>
+<li>
+<em>CSS Class</em>: <strong>data-cell</strong>
+</li>
+<li>
+<em>Description</em>: This CSS class is applied to all the other Cells.</li>
+</ul>
+</li>
+<li>Table
+
+<ul>
+<li>
+<em>CSS Class</em>: <strong>table table-bordered table-hover</strong>
+</li>
+<li>
+<em>Description</em>: This CSS class is applied to the Table. This is a set <a href="http://getbootstrap.com/css/#tables-bordered">Bootstrap</a> classes.</li>
+</ul>
+</li>
+</ol>
+
+<p>This gives more flexibility to the developers thus allowing them to control the look and feel of the headers and individual data cells via CSS.</p>
+
+<h5>
+<a id="applying-css" class="anchor" href="#applying-css" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Applying CSS</h5>
+
+<p>Here is a set of sample CSS rules that were applied to get a similar look and feel as the Table shown in the screenshot above - </p>
+
+<div class="highlight highlight-source-css"><pre><span class="pl-ent">th</span>,
+<span class="pl-e">.row-header</span> {
+    <span class="pl-c1"><span class="pl-c1">color</span></span>            : <span class="pl-c1">white</span>;
+    <span class="pl-c1"><span class="pl-c1">font-weight</span></span>      : <span class="pl-c1">bold</span>;
+    <span class="pl-c1"><span class="pl-c1">background-color</span></span> : <span class="pl-c1">#288FFE</span>;
+}
+
+<span class="pl-e">.row-header</span> {
+    <span class="pl-c1"><span class="pl-c1">width</span></span>: <span class="pl-c1">15<span class="pl-k">%</span></span>;
+}
+
+<span class="pl-e">.col-header</span> {
+    <span class="pl-c1"><span class="pl-c1">text-align</span></span>: <span class="pl-c1">center</span>;
+}
+
+<span class="pl-e">.data-cell</span> {
+    <span class="pl-c1"><span class="pl-c1">text-align</span></span>: <span class="pl-c1">center</span>;
+}</pre></div>
+
+<blockquote>
+<p>Since the HTML Table is generated in compliance with the <a href="http://www.w3.org/TR/html401/struct/tables.html">W3C Specifications</a>, one will have to access the Column Header Cells using the Tag Selector - <code>th { }</code> and not <del><code>td {}</code></del>.</p>
+
+<p>Table.js also applies the Twitter Bootstrap classes to the containing Table.</p>
+</blockquote>
+
+<h3>
+<a id="licensing" class="anchor" href="#licensing" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Licensing</h3>
+
+<p>Completely free! Use it at your own will.</p>
+
+<h3>
+<a id="credits" class="anchor" href="#credits" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Credits</h3>
+
+<p>Deepak @ <a href="http://dazeworks.com/"><strong>Dazeworks Technologies Pvt Ltd</strong></a></p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/Deepak-K-Anand/Table.js">Table.js</a> is maintained by <a href="https://github.com/Deepak-K-Anand">Deepak-K-Anand</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
