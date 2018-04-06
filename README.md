@@ -120,7 +120,7 @@ The Table.js also applies a set of CSS classes to the Table and the Cells. They 
 
 This gives more flexibility to the developers thus allowing them to control the look and feel of the headers and individual data cells via CSS.
 
-#####Applying CSS
+##### Applying CSS
 Here is a set of sample CSS rules that were applied to get a similar look and feel as the Table shown in the screenshot above - 
 ```css
 th,
